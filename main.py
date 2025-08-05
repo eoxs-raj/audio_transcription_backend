@@ -33,7 +33,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to your frontend URL in production
+    allow_origins=["https://audiotranscriber1.netlify.app"],  # Change this to your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -59,4 +59,5 @@ async def transcribe(file: UploadFile = File(...)):
     finally:
         if tmp_path and os.path.exists(tmp_path):
             os.remove(tmp_path)
+
 
